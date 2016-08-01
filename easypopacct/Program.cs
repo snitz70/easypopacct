@@ -12,11 +12,18 @@ namespace easypopacct
         [STAThread]
         static void Main(string[] args)
         {
-            int acct = Convert.ToInt16(args[0]);
+            if (args.Length > 0)
+            {
+                CalculateAcct(args[0]);
+            }
+        }
+
+        static void CalculateAcct(string args)
+        {
+            int acct = Convert.ToInt16(args);
             acct -= 2000;
             string acct_text = Convert.ToString(acct);
             Clipboard.SetText(acct_text);
-            
         }
     }
 }
